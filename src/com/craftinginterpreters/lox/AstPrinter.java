@@ -6,6 +6,11 @@ class AstPrinter implements Expr.Visitor<String> {
     }
 
     @Override
+    public String visitSuperExpr(Expr.Super expr) {
+        return "(super " + expr.keyword.lexeme + ")";
+    }
+
+    @Override
     public String visitCallExpr(Expr.Call expr) {
         StringBuilder builder = new StringBuilder();
 
